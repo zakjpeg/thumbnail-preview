@@ -1,0 +1,345 @@
+<!--TO DO:
+
+- lock preview aspect ratio
+- mobile support (atleast make it super reactive) (or make it look like a fire ass app)
+- add place for people to leave nice messages (and link it)
+
+DID:
+
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="ytclone.css">
+
+    <title>Thumbnail Preview</title>
+
+    <!-- font stuff -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!--end font stuff-->
+
+
+    <!-- symbols stuff -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    <!-- end symbols stuff-->
+</head>
+
+<body class="darkmode">
+
+
+
+
+
+
+
+    <div class="header">
+        <div class="header__left">
+            <a href="http://xlns.media"><img src="duckies profile pic.png" alt="" class="duckyspfp"></a>
+            <h1><a href="http://xlns.media" id="headertext1">ducky's media / </a><span id="headertext2">thumbnail preview</span></h1>
+        </div>
+        <div class="header__right"></div>
+
+    </div>
+    <div class="body__contents">
+        <div class="body__contents__left">
+            <div class="image__preview">
+                <img src="defaultthumbnail.jpg" alt="thumbnailexample" class="thumbnail__example" id="fimagepreview" draggable="false">
+                <div class="hide" draggable="false">Upload Thumbnail</div>
+                <img src="upload_file_icon.png" alt="" id="hideicon">
+            </div>
+        </div>
+        <div class="body__contents__right">
+            <div class="explainer">
+                <h2 class="topic">Upload an image to create a new preview</h2>
+                <h3 class="subtopic">If you find this free tool helpful, consider leaving me a nice message here</h3>
+            </div>
+            <div class="utility">
+                <form id="inputForm" method="post" target="previewframe">
+                    <div class="ffile">
+                        <label for="ffile" class="label">Thumbnail:<br></label>
+                        <input type="file" id="ffile" name="ffile" accept="image/png, image/jpg, image/jpeg"><br>
+                    </div>
+                    <div class="ftitle">
+                        <label for="ftitle" class="label">Video Title:</label>
+                        <input type="text" id="ftitle" name="ftitle" placeholder="Your Video's Title..." required maxlength="100"><br>
+                    </div>
+                    <div class="wrapper__btn__submit">
+                        <div class="btn__submit__container">
+                            <input type="submit" value="Preview" class="btn__submit" id="btn__submit">
+                        </div>
+                        <div class="btn__copy__title__container">
+                            <button id="btn__copy__title">Copy Title</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <p id="preview__anchor"></p>
+    <div class="container">
+        <div class="container__wrapper">
+            <div class="controls__container">
+                <button id="btn__randomize__order"><span class="material-symbols-outlined">
+                    shuffle
+                    </span>
+                    Shuffle Order</button>
+
+                <button id="btn__toggle__darkmode"><span class="material-symbols-outlined">
+                    dark_mode
+                    </span>Toggle Darkmode</button>
+            </div>
+
+            <div class="list-container">
+            <div class="vid-list">
+                <img src="https://i.ytimg.com/vi/vD-dEl7R2Bg/maxresdefault.jpg" class="thumbnail" ></a>
+                <div class="flex-div">
+                    <img src="https://yt3.googleusercontent.com/ytc/AIdro_nYKB2yTyvTgmvqfh7VkNQp7W5RM3Xg4QrYnMsERBbb-bEm=s160-c-k-c0x00ffffff-no-rj">
+                    <div class="vid-info">
+                        <a>Ranking Every Exercise from WORST To BEST! - Ft. Jeff Nippard</a>
+                        <p>Jesse James West</p>
+                        <p>3.5M Views &bull; 3 months ago</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="vid-list">
+                <img src="https://i.ytimg.com/vi/cf4n3B-FwfM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLChADh-R68a2-M01ZIqpvIJVA3WRA" class="thumbnail" ></a>
+                <div class="flex-div">
+                    <img src="https://yt3.googleusercontent.com/ytc/AIdro_mxwxtvF9cARDD4SIR7Utb0S3Ftf1zg9Tm5OT4vVl06=s160-c-k-c0x00ffffff-no-rj">
+                    <div class="vid-info">
+                        <a>Does the Asian Community Like Trump?</a>
+                        <p>Theo Von Clips</p>
+                        <p>587k views &bull; 12 days ago</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="vid-list">
+                <img src="https://i.ytimg.com/vi/diES3cFBG6Q/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDGGfXyLMeWb4Ecc6J59cSbgFNqXQ" class="thumbnail" ></a>
+                <div class="flex-div">
+                    <img src="https://yt3.ggpht.com/KmxuzNlkmmwTT64ZJEVx36wLV22j0g22lnJ1IVJ2PDu-f1pOQpeEvyoJRv-NST4OoP-EHRr6uQ=s176-c-k-c0x00ffffff-no-rj-mo">
+                    <div class="vid-info">
+                        <a>Steven Spielberg's Living Hell: Two Films, One Year</a>
+                        <p>Dodford</p>
+                        <p>1.6M views &bull; 1 year ago</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="vid-list">
+                <img src="https://i.ytimg.com/vi/O1ghtDziozA/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB9UNNVeha5BhQd0OYuHucc7Ol8kA" class="thumbnail" ></a>
+                <div class="flex-div">
+                    <img src="https://yt3.googleusercontent.com/ytc/AIdro_kgdmOwJMaT5GSsjccWPwy7U_SXXbSy8zAwu6ZQyPdPaBw=s176-c-k-c0x00ffffff-no-rj-mo">
+                    <div class="vid-info">
+                        <a>The BIGGEST game in CS2 (30 vs 30)</a>
+                        <p>NadeKing</p>
+                        <p>413k views &bull; 1 month ago</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="vid-list">
+                <img src="https://i.ytimg.com/vi/cvomukQiKT0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBU-jj7wefdb7MwhneoWBMpWsVJ2w" class="thumbnail" ></a>
+                <div class="flex-div">
+                    <img src="https://yt3.googleusercontent.com/ytc/AIdro_kgdmOwJMaT5GSsjccWPwy7U_SXXbSy8zAwu6ZQyPdPaBw=s176-c-k-c0x00ffffff-no-rj-mo">
+                    <div class="vid-info">
+                        <a>Can You Survive 100 Grenades in Banana?</a>
+                        <p>NadeKing</p>
+                        <p>896k Views &bull; 4 weeks ago</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="vid-list">
+                <img src="https://i.ytimg.com/vi/kieCFwMqKtE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAmmOWTiiZPrVMEVsJshKIkf3jWkQ" class="thumbnail" ></a>
+                <div class="flex-div">
+                    <img src="https://yt3.googleusercontent.com/ytc/AIdro_lYWldBbcbrsP_8FNE3657CriL6aAnLnUk7bN2yOoRWA5M=s176-c-k-c0x00ffffff-no-rj-mo">
+                    <div class="vid-info">
+                        <a>The WILD Story of How the Mormons Created Utah</a>
+                        <p>Johnny Harris</p>
+                        <p>2.1M views &bull; 1 month ago</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="vid-list">
+                <img src="https://i.ytimg.com/vi/TnKMxBiRKvY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBt-dwgH27V3jyDYJ22TmTsepzzMA" class="thumbnail" ></a>
+                <div class="flex-div">
+                    <img src="https://yt3.ggpht.com/t3_Nrn-t7sj3SN110Ce5Zc6NG9X_jfWbDHLOGJOOdAcNSOYCLRONJmJF-XqhEdKMAlQcGqmV1g=s176-c-k-c0x00ffffff-no-rj-mo">
+                    <div class="vid-info">
+                        <a>Find What You Love and Let it Kill You</a>
+                        <p>Brendan Spiegel</p>
+                        <p>194k views &bull; 3 months ago</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="vid-list">
+                <img src="https://i.ytimg.com/vi/gz3C1lNI0NA/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDCf8hqtVRbGmChCa6OdAQe7ufvyQ" class="thumbnail" ></a>
+                <div class="flex-div">
+                    <img src="https://yt3.googleusercontent.com/ytc/AIdro_lr_y83UCcdbqs-KpjgkViIjMXkv1DpGrKLhspQ1GpnG2Q=s160-c-k-c0x00ffffff-no-rj">
+                    <div class="vid-info">
+                        <a>I Let My Chat Decorate My Room. $15,000 Mistake.</a>
+                        <p>Ludwig</p>
+                        <p>1.3M views &bull; 2 months ago</p>
+                    </div>
+                </div>
+            </div>
+        
+        
+                <div class="vid-list">
+                <img src="https://i.ytimg.com/vi/IXEewFEDieU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBgfpLu9PaI_V7bJ_BfxMECfY3dYw" class="thumbnail" ></a>
+                <div class="flex-div">
+                    <img src="https://yt3.ggpht.com/jiH-hkCKaWKt73eiZWe1HiLYYlsiFzWsrqxw7gt10Z6x-xNxvX4dkx_f8n_xTEGxtntH619Mvfg=s68-c-k-c0x00ffffff-no-rj">
+                    <div class="vid-info">
+                        <a>Why every MrBeast video gets 200M views (interview)</a>
+                        <p>Jon Youshaei</p>
+                        <p>2.2M views &bull; 3 months ago</p>
+                    </div>
+                </div>
+            </div>  
+            
+            <div class="vid-list">
+                <img src="https://i.ytimg.com/vi/bsCN0Yx2Vbs/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBZqwuAEf67skIzdG55sK-YGUkSDw" class="thumbnail" ></a>
+                <div class="flex-div">
+                    <img src="https://yt3.ggpht.com/ytc/AIdro_lQEceAJchLJEjWu6KQ39b77HUTbBos3JNj9eC9e-ao0Q=s68-c-k-c0x00ffffff-no-rj">
+                    <div class="vid-info">
+                        <a>The most overused game graphic you ever noticed | Texture Archaeology</a>
+                        <p>Kid Leaves Stoop</p>
+                        <p>2.8M views &bull; 3 years ago</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="vid-list">
+                <img src="https://i.ytimg.com/vi/L9a43uKT1fk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB8Ei7Mku1TkswTDe_iH8ot2GSyFg" class="thumbnail" ></a>
+                <div class="flex-div">
+                    <img src="https://yt3.ggpht.com/ytc/AIdro_lp1ST4H9nG0ryPSLScy22wQrC5XsoXG5-HjldmYIyjEMY=s68-c-k-c0x00ffffff-no-rj">
+                    <div class="vid-info">
+                        <a>Asking 100 CS2 Players What They Do For A Living</a>
+                        <p>PROPERNATOR</p>
+                        <p>112k views &bull; 7 months ago</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="vid-list">
+                <img src="https://i.ytimg.com/vi/puwToxgIikE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAEmrFb7QWDmzAoj5_rqs9euyn2Kg" class="thumbnail" ></a>
+                <div class="flex-div">
+                    <img src="https://yt3.ggpht.com/vr1RcaOdC6H2xQJnN-Zgo3jzbFL3D-c4djtozj4zvRjuVqW3ThYzpEVwXYRAdv2G9HWthunGAQ=s176-c-k-c0x00ffffff-no-rj-mo">
+                    <div class="vid-info">
+                        <a>How I Created FaZe Rug's Thumbnail With 5 Million Views</a>
+                        <p>Dill Toma</p>
+                        <p>32k views &bull; 3 months ago</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="vid-list">
+                <img src="https://i.ytimg.com/vi/nwbsWqTb8EM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC3gDEQnv27y59I3eFU_odbIweTlQ" class="thumbnail" ></a>
+                <div class="flex-div">
+                    <img src="https://yt3.googleusercontent.com/ytc/AIdro_laQKK3Es13hsq_VAUfdHP66d9Z7kDvdDwjPvB1zMP3TeI=s176-c-k-c0x00ffffff-no-rj-mo">
+                    <div class="vid-info">
+                        <a>THIS CS2 VIDEO PUT ME ON A LIST</a>
+                        <p>SwaggerSouls</p>
+                        <p>550k views &bull; 2 months ago</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="vid-list">
+                <img src="https://i.ytimg.com/vi/Gfx7oqJtKHc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAxf2n3QKs67QDQPGXbvEF1-udhkg" class="thumbnail" ></a>
+                <div class="flex-div">
+                    <img src="https://yt3.ggpht.com/t1mVDtlcLWf1JmF3AZIEbEpGh61XtRPg6CRFQ8n827F002NDC0NTcREQj55Vizlw3l0tVT8f=s68-c-k-c0x00ffffff-no-rj">
+                    <div class="vid-info">
+                        <a>N3on & Leon The Security Guard REUNITE..</a>
+                        <p>N3ON</p>
+                        <p>95k views &bull; 5 months ago</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="vid-list">
+                <img src="defaultthumbnail.jpg" class="thumbnail" id="dynamic__thumbnail"></a>
+                <div class="flex-div">
+                    <img src="default profile pic.jpg">
+                    <div class="vid-info">
+                        <a id="dynamic__title">Scroll Up To Add Title</a>
+                        <p>Random Duck</p>
+                        <p>473k views &bull; 2 days ago</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>   
+    </div>    
+
+    
+    <br>
+
+
+
+    <div class="more__info">
+    
+        <div class="more__info__contents">
+            <div class="more1">
+                <h1>What is Thumbnail Preview?</h1>
+            </div>
+            <div class="more2">
+                <h3 class="more2">
+                    "Thumbnail Preview" aims to render a traditionally paid experience to users
+                    for free, offering tools like this for ease and utility of editors and
+                    content creators everywhere.
+                </h3>
+            </div>
+            <div class="more1">
+                <h1><br>Why free?</h1>
+            </div>
+            <div class="more2">
+                <h3 class="more2">
+                    Why not? At its core, my purpose is to raise the standards, ease and accessibility of video editing.
+                    Accessibility is key to my vision for a more entertaining future. Enjoy eternally free products that
+                     enhance your edits and impress millions.
+                </h3>
+            </div>
+            <div class="more1">
+                <h1><br>Where can I find more free editing tools?</h1>
+            </div>
+            <div class="more2">
+                <h3 class="more2">
+                    Through the Ducky's Media website and YouTube channel, you can download, learn to create, and learn
+                    to implement dozens of free editing presets, tools and plugins.
+                </h3>
+            </div>
+            <div class="buttons">
+                <div>
+                    <button class="button1">YouTube</button>
+                </div>
+                <div>
+                    <button class="button2">Free Plugins</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.jsx"></script>
+</body>
+</html>
