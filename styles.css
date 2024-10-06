@@ -151,6 +151,11 @@ body.darkmode {
 
   }
 
+  .header {
+    justify-content: center;
+  }
+
+
 }
 
 
@@ -351,8 +356,8 @@ color: black;
   font-family: "Poppins";
   font-weight: 600;
   font-size: 20px;
-  border: 2px solid #ffffff;
   border-radius: 360px;
+  border: 0;
   width: 150px;
   background: none;
   cursor: pointer;
@@ -364,7 +369,8 @@ color: black;
 .button1:hover {
   background-color: rgb(237, 0, 0);
   transform: scale(1.03);
-  
+  border: 0;
+
 }
 
 .button2 {
@@ -384,6 +390,11 @@ color: black;
 .button2:hover {
   background-color: rgb(48, 48, 48);
   transform: scale(1.03);
+}
+
+.darkmode .button2 {
+  background-color: white;
+  color: black;
 }
 
 
@@ -465,8 +476,15 @@ color: black;
     align-items: center;
     padding-left: 8%;
     padding-right: 8%;
-    padding-bottom: 600px;
+    padding-bottom: 100px;
     padding-top: 100px;
+    justify-content: center;
+}
+
+@media screen and (max-width:992px) {
+  .more__info {
+    display: none;
+  }
 }
 
 .more__info__contents {
@@ -476,6 +494,14 @@ color: black;
     border-radius: 25px;
     box-shadow: 0px 0px 8px rgb(225, 225, 225);
 }
+
+.darkmode .more__info__contents {
+  background-color: black;
+  box-shadow: 0px 0px 8px rgb(0, 0, 0);
+
+}
+
+
 
 .more1 {
     letter-spacing: -2px;
@@ -488,6 +514,14 @@ color: black;
     color: rgb(49, 48, 53);
 }
 
+.darkmode .more2 {
+  color: white;
+}
+
+.darkmode .more1 {
+  color: white;
+}
+
 .buttons {
     display: flex;
     direction: row;
@@ -497,6 +531,35 @@ color: black;
     justify-content: center;
     gap: 300px;
 }
+
+.more__info__smallpage {
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.more__info__smallpage__txt {
+  font-size: medium; 
+  padding-bottom: 15px;
+}
+
+.darkmode .more__info__smallpage__txt {
+  color: white;
+}
+
+@media screen and (max-width: 992px) {
+  .more__info__smallpage {
+    display: flex;
+  }
+
+}
+
+.btn__wrapper {
+  padding: 5px;
+}
+
 
 
 

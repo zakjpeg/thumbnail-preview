@@ -3,6 +3,21 @@ const preview = document.getElementById('fimagepreview');
 const dynamicthumbnail = document.getElementById('dynamic__thumbnail');
 const body = document.getElementsByClassName('body');
 
+// Function to randomize the divs
+function randomizeDivs() {
+    const boxes = document.querySelectorAll('.vid-list'); // Select all divs with class "box"
+    const parent = boxes[0].parentNode; // Get the parent element
+    const boxesArray = Array.from(boxes); // Convert NodeList to an array
+
+    // Shuffle the array of boxes
+    const shuffledBoxes = shuffleArray(boxesArray);
+
+    // Remove all boxes from the parent
+    shuffledBoxes.forEach(box => parent.removeChild(box));
+
+    // Append the shuffled boxes back to the parent
+    shuffledBoxes.forEach(box => parent.appendChild(box));
+}
 
 imageInput.addEventListener('change', function(event) {
     const file = event.target.files[0];
@@ -14,6 +29,7 @@ imageInput.addEventListener('change', function(event) {
     }
 
     reader.readAsDataURL(file);
+    randomizeDivs();
 })
 
 preview.addEventListener('click', function() {
@@ -62,21 +78,8 @@ function shuffleArray(array) {
     return array;
 }
 
-// Function to randomize the divs
-function randomizeDivs() {
-    const boxes = document.querySelectorAll('.vid-list'); // Select all divs with class "box"
-    const parent = boxes[0].parentNode; // Get the parent element
-    const boxesArray = Array.from(boxes); // Convert NodeList to an array
 
-    // Shuffle the array of boxes
-    const shuffledBoxes = shuffleArray(boxesArray);
-
-    // Remove all boxes from the parent
-    shuffledBoxes.forEach(box => parent.removeChild(box));
-
-    // Append the shuffled boxes back to the parent
-    shuffledBoxes.forEach(box => parent.appendChild(box));
-}
+// Button to Randomize Divs
 const btnRandomize = document.getElementById("btn__randomize__order");
 btnRandomize.addEventListener('click', randomizeDivs)
 
@@ -106,7 +109,9 @@ body.addEventListener("dragover", function(e) {
 
 
 // Call the function on page load
-window.onload = randomizeDivs;
+window.onload = function() {
+    randomizeDivs();
+};
 
 
 
