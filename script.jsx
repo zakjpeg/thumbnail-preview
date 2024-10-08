@@ -59,7 +59,6 @@ btnSubmit.addEventListener('click', function() {
 })
 
 
-document.body.classList.toggle('darkmode');
 // Function to switch to darkmode
 const btnToggleMode = document.getElementById("btn__toggle__darkmode");
 btnToggleMode.addEventListener('click', function() {
@@ -115,11 +114,17 @@ window.onload = function() {
 
 
 
+/*
+var btnXlnsLink = document.getElementById('btn__xlns__link');
+btnXlnsLink.addEventListener('click', function() {
+    window.location.href = "https://xlns.media";
+})
 
-
-
-
-
+var btnYTLink = document.getElementById("btn__youtube__link");
+btnYTLink.addEventListener('click', function() {
+    window.location.href = "https://youtube.com";
+})
+*/
 
 
 /*const form = document.getElementById('inputForm');
