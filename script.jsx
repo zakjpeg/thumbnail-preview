@@ -66,6 +66,33 @@ btnToggleMode.addEventListener('click', function() {
 })
 
 
+// Keyboard Shortcuts ('d' and 's' for darkmode and shuffle)
+document.addEventListener('keydown', function(event) {
+
+    if (event.target.tagName !== 'INPUT' && event.target.tagName !== 'TEXTAREA') {   
+        if (event.key === 's' || event.key === 'S') {
+            randomizeDivs();
+        }
+        if (event.key === 'd' || event.key === 'D') {
+            document.body.classList.toggle('darkmode');
+        }
+    }
+})
+
+
+// Dragover Functions (Drag and Drop) WIP
+/*document.addEventListener('dragenter', (event) => {
+    event.preventDefault();
+    document.body.classList.add('dragover');
+});
+
+document.addEventListener('dragleave', (event) => {
+    event.preventDefault();
+    document.body.classList.remove('dragover');
+})
+*/
+
+
 
 
 // Function to shuffle an array
@@ -84,9 +111,9 @@ btnRandomize.addEventListener('click', randomizeDivs)
 
 // Function to copy title text
 var btnCopyTitle = document.getElementById("btn__copy__title");
+var copyText = document.getElementById("ftitle");
 
 btnCopyTitle.addEventListener('click', function() {
-    var copyText = document.getElementById("ftitle");
 
     copyText.select();
     copyText.setSelectionRange(0, 99999); //for mobile

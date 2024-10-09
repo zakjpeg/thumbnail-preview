@@ -19,9 +19,14 @@ body {
 
 }
 
+body.dragover {
+  filter: invert();
+}
+
 body.darkmode {
   background-color: var(--color-background-dm);
 }
+
 
 
 /* HEADER STUFF */
@@ -96,7 +101,10 @@ body.darkmode {
 
 .image__preview {
   position: relative;
-  width:50%;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
 }
 
 .thumbnail__example {
@@ -104,21 +112,48 @@ body.darkmode {
   border-radius: 15px;
   transition: 450ms;
   cursor:pointer;
-
 }
+
+
 .thumbnail__example:hover {
     transform: scale(1.02);
     filter: brightness(0.3);
 }
 
+@media screen and (max-width:720px) {
+  .header__left {
+    justify-self: center;
+    justify-content: center;
+    width: 10%;
+    font-size: small;
+  }
+  
+  .thumbnail__example {
+
+    width: 105%;
+  }
+
+  #hideicon {
+    width: 100%;
+  }
+
+  .thumbnail__example:hover + .hide {
+    display: none;
+    opacity: 0%;
+  }
+
+
+
+}
+
+
 .hide {
   text-align: center;
   font: "Montserrat";
   font-weight: 400;
-  font-size: 25px;
+  font-size: 2.5vw;
   position: absolute;
-  top: 65%;
-  left: 80%;
+  bottom: 20%;
   color:rgb(255, 255, 255);
   transition: 350ms;
   opacity: 0;
@@ -127,8 +162,7 @@ body.darkmode {
 
 #hideicon {
   position: absolute;
-  top: 20%;
-  left: 70%;
+  width: 30%;
   color:rgb(255, 255, 255);
   transition: 350ms;
   display: block;
@@ -186,6 +220,14 @@ body.darkmode {
     justify-content: center;
   }
 
+  .body__contents {
+    padding-top: 50px;
+  }
+
+  .body__contents__right {
+    padding-right: 50px;
+  }
+
 
 }
 
@@ -230,6 +272,10 @@ body.darkmode {
 }
 
 .darkmode .subtopic  {
+  color: var(--color-secondary);
+}
+
+.darkmode .subtopic a {
   color: var(--color-secondary);
 }
 
@@ -380,7 +426,13 @@ color: black;
 }
 
 
+#btn__toggle__darkmode span {
+  transition: 0ms;
+}
 
+#btn__randomize__order span {
+  transition: 0ms;
+}
 
 
 .button1 {
@@ -546,8 +598,17 @@ color: black;
     color: rgb(49, 48, 53);
 }
 
+.more2 a {
+  color: rgb(49, 48, 53);
+}
+
 .darkmode .more2 {
   color: white;
+}
+
+.darkmode .more2 u a {
+  color: white;
+
 }
 
 .darkmode .more1 {
@@ -592,6 +653,18 @@ color: black;
   padding: 5px;
 }
 
+
+.footer {
+  color: rgb(29, 30, 35);
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.darkmode .footer {
+  color: rgb(184, 184, 184);
+}
 
 
 

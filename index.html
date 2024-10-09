@@ -1,11 +1,15 @@
 <!--TO DO:
 
 - lock preview aspect ratio
-- mobile support (atleast make it super reactive) (or make it look like a fire ass app)
-- add place for people to leave nice messages (and link it)
-- buy and host on thumbnailpreview.xyz
+- add links (footer)
+- drag and drop image files
+
 DID:
-- Fixed "moreinfo" at bottom to be responsive to screen size and color
+- mobile support (reactive elements including hover)
+- clean up footer
+- add keyboard shortcuts for darkmode and shuffle (maybe z and x keys?) (edit: d and s for dark and shuffle, duh)
+
+
 
 -->
 
@@ -59,7 +63,7 @@ DID:
         <div class="header__right"></div>
 
     </div>
-    <div class="body__contents">
+    <div class="body__contents" class="dragover">
         <div class="body__contents__left">
             <div class="image__preview">
                 <img src="defaultthumbnail.jpg" alt="thumbnailexample" class="thumbnail__example" id="fimagepreview" draggable="false">
@@ -285,7 +289,7 @@ DID:
                     <div class="vid-info">
                         <a id="dynamic__title">Scroll Up To Add Title</a>
                         <p>Random Duck</p>
-                        <p>473k views &bull; 2 days ago</p>
+                        <p>473k views &bull; 2 hours ago</p>
                     </div>
                 </div>
             </div>
@@ -318,7 +322,7 @@ DID:
             </div>
             <div class="more2">
                 <h3 class="more2">
-                    Thumbnail Preview is an exclusively client-side tool, meaning your photos aren't uploaded or stored on any server. See the source code <u><a style="color:black" href="https://github.com/zakjpeg/thumbnail-preview">here</a></u>.
+                    Thumbnail Preview is an exclusively client-side tool, meaning your photos aren't uploaded or stored on any server. See the source code <u><a href="https://github.com/zakjpeg/thumbnail-preview">here</a></u>.
                 </h3>
             </div>
             <div class="more1">
@@ -345,7 +349,7 @@ DID:
 
 
     <div class="footer">
-        2024 Ducky's Media
+        2024 ducky's media
     </div>
 
 

@@ -539,5 +539,25 @@ margin-right: 20px;
 }
 
 
+/* REACTIVE STUFF FOR MOBILE */
 
+@media screen and (max-width:530px) {
+    .container {
+        padding: 0;
+    }
+    #btn__randomize__order {
+        margin-left: 3%;
+    }
+    .vid-list .thumbnail {
+        border-radius: 0;
+    }
+    .flex-div {
+        margin-left: 3%;
+    }
+
+    .controls__container {
+        justify-content: center;
+    }
+
+}
 
