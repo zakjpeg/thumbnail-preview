@@ -153,9 +153,18 @@ body.darkmode {
 
 }
 
-@media screen and (max-width:720px) {
-  .controls__container {
-    font-size: 3px !important;
+@media screen and (max-width:473px) {
+  #btn__randomize__order div{
+    display: none;
+  }
+  #btn__randomize__order:after {
+    content: 'Shuffle';
+  }
+  #btn__toggle__darkmode div {
+    display: none;
+  }
+  #btn__toggle__darkmode:after {
+    content: 'Dark Mode';
   }
 }
 
@@ -401,7 +410,7 @@ input[type=text], select {
   padding: 5px;
   margin-left: 5px;
   font-family: "Poppins";
-  font-weight: 400;
+  font-weight: 600;
   font-size: 15px;
   border: 0px solid #ffffff;
   border-radius: 360px;
