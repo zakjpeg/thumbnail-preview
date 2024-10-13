@@ -142,9 +142,23 @@ body.darkmode {
     opacity: 0%;
   }
 
+  .controls__container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 
+  .footer {
+    margin-bottom: 150px;
+  }
 
 }
+
+@media screen and (max-width:720px) {
+  .controls__container {
+    font-size: 3px !important;
+  }
+}
+
 
 
 .hide {
@@ -487,7 +501,7 @@ color: black;
   
 }
 
-#btn__randomize__order {
+#btn__randomize__order, #btn__place__first {
   display:flex;
   align-items: center;
   justify-content: space-evenly;
@@ -507,18 +521,24 @@ color: black;
   margin-bottom:20px;
 }
 
-.darkmode #btn__randomize__order  {
+.darkmode #btn__randomize__order, .darkmode #btn__place__first  {
   background-color: white;
   color: black;
 }
 
-#btn__randomize__order:hover {
+#btn__randomize__order:hover, #btn__place__first:hover {
   background-color: rgb(48, 48, 48);
   transform: scale(1.03);
 }
 
-.darkmode #btn__randomize__order:hover  {
+.darkmode #btn__randomize__order:hover, .darkmode #btn__place__first:hover  {
   background-color: rgb(214, 214, 214);
+}
+
+
+
+#btn__place__first {
+  width: 70px;
 }
 
 #btn__toggle__darkmode {
@@ -664,6 +684,13 @@ color: black;
 
 .darkmode .footer {
   color: rgb(184, 184, 184);
+}
+
+
+.redmode {
+  background-color: red !important;
+  color: white !important;
+  transition: 0ms !important;
 }
 
 /* FONT STUFF */

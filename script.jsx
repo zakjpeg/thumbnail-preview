@@ -2,6 +2,31 @@ const imageInput = document.getElementById('ffile');
 const preview = document.getElementById('fimagepreview');
 const dynamicthumbnail = document.getElementById('dynamic__thumbnail');
 const body = document.getElementsByClassName('body');
+var placeFirstFlag = 0;
+
+// Function to place preview first
+function placeFirst() {
+    if (placeFirstFlag == 0) {
+        placeFirstFlag = 1;
+    } else {
+        placeFirstFlag = 0;
+    }
+    document.getElementById('btn__place__first').classList.toggle('redmode');
+    const boxes = document.querySelectorAll('.vid-list'); // Select all divs with class "box"
+    const parent = boxes[0].parentNode; // Get the parent element
+    const boxesArray = Array.from(boxes); // Convert NodeList to an array
+    var i = boxesArray.findIndex(box => box.id === 'dynamic__video');
+
+    if (i !== -1) {
+        [boxesArray[0], boxesArray[i]] = [boxesArray[i], boxesArray[0]] ;
+    }
+
+    // Remove all boxes from the parent
+    boxesArray.forEach(box => parent.removeChild(box));
+
+    // Append the shuffled boxes back to the parent
+    boxesArray.forEach(box => parent.appendChild(box));
+}
 
 // Function to randomize the divs
 function randomizeDivs() {
@@ -12,11 +37,28 @@ function randomizeDivs() {
     // Shuffle the array of boxes
     const shuffledBoxes = shuffleArray(boxesArray);
 
+    if (placeFirstFlag == 1) {
+        var i = boxesArray.findIndex(box => box.id === 'dynamic__video');
+
+        if (i !== -1) {
+            [boxesArray[0], boxesArray[i]] = [boxesArray[i], boxesArray[0]] ;
+        }
+    }
+
     // Remove all boxes from the parent
     shuffledBoxes.forEach(box => parent.removeChild(box));
 
     // Append the shuffled boxes back to the parent
     shuffledBoxes.forEach(box => parent.appendChild(box));
+}
+
+// Function to shuffle an array
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+    return array;
 }
 
 imageInput.addEventListener('change', function(event) {
@@ -95,19 +137,16 @@ document.addEventListener('dragleave', (event) => {
 
 
 
-// Function to shuffle an array
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
-    }
-    return array;
-}
+
 
 
 // Button to Randomize Divs
 const btnRandomize = document.getElementById("btn__randomize__order");
 btnRandomize.addEventListener('click', randomizeDivs)
+
+// Button to send preview to first place
+const btnPlaceFirst = document.getElementById("btn__place__first");
+btnPlaceFirst.addEventListener('click', placeFirst)
 
 // Function to copy title text
 var btnCopyTitle = document.getElementById("btn__copy__title");
@@ -122,6 +161,8 @@ btnCopyTitle.addEventListener('click', function() {
     window.getSelection().removeAllRanges();
 
 })
+
+
 
 
 // Drag and Drop feature

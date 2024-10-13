@@ -5,9 +5,8 @@
 - drag and drop image files
 
 DID:
-- mobile support (reactive elements including hover)
-- clean up footer
-- add keyboard shortcuts for darkmode and shuffle (maybe z and x keys?) (edit: d and s for dark and shuffle, duh)
+- added button that moves preview up to 1st place (works like a toggle)
+- 
 
 
 
@@ -44,6 +43,7 @@ DID:
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    
     <!-- end symbols stuff-->
 </head>
 
@@ -102,6 +102,11 @@ DID:
     <div class="container">
         <div class="container__wrapper">
             <div class="controls__container">
+                <button id="btn__place__first">
+                    <span class="material-symbols-outlined">
+                        move_up
+                        </span>
+                </button>
                 <button id="btn__randomize__order"><span class="material-symbols-outlined">
                     shuffle
                     </span>
@@ -110,6 +115,7 @@ DID:
                 <button id="btn__toggle__darkmode"><span class="material-symbols-outlined">
                     dark_mode
                     </span>Toggle Darkmode</button>
+
             </div>
 
             <div class="list-container">
@@ -282,7 +288,7 @@ DID:
                 </div>
             </div>
         
-            <div class="vid-list">
+            <div class="vid-list" id="dynamic__video">
                 <img src="defaultthumbnail.jpg" class="thumbnail" id="dynamic__thumbnail"></a>
                 <div class="flex-div">
                     <img src="default profile pic.jpg">
