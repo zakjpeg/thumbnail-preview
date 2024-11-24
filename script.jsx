@@ -123,16 +123,28 @@ document.addEventListener('keydown', function(event) {
 
 
 // Dragover Functions (Drag and Drop) WIP
-/*document.addEventListener('dragenter', (event) => {
+const overlay = document.getElementById('overlay');
+
+window.addEventListener('dragenter', (event) => {
     event.preventDefault();
-    document.body.classList.add('dragover');
+    overlay.style.transition = "250ms";
+    overlay.style.display = "flex";
 });
 
-document.addEventListener('dragleave', (event) => {
+window.addEventListener('dragleave', (event) => {
     event.preventDefault();
-    document.body.classList.remove('dragover');
+    if (event.clientX === 0 && event.clientY === 0) {
+        overlay.style.transition = "250ms";
+        overlay.style.display = "none"; // Hide overlay
+
+      }
 })
-*/
+
+window.addEventListener('drop', (event)=> {
+    preventDefault();
+    overlay.style.display = "none";
+})
+
 
 
 
@@ -148,6 +160,18 @@ btnRandomize.addEventListener('click', randomizeDivs)
 const btnPlaceFirst = document.getElementById("btn__place__first");
 btnPlaceFirst.addEventListener('click', placeFirst)
 
+// Button to toggle mobile view on desktop
+const btnToggleMobile = document.getElementById("btn__toggle__mobile");
+btnToggleMobile.addEventListener('click', function() {
+
+    btnToggleMobile.classList.toggle('redmode');
+
+    const listContainer = document.getElementById("list-container");
+
+    listContainer.classList.toggle('mobile');
+
+})
+
 // Function to copy title text
 var btnCopyTitle = document.getElementById("btn__copy__title");
 var copyText = document.getElementById("ftitle");
@@ -161,18 +185,6 @@ btnCopyTitle.addEventListener('click', function() {
     window.getSelection().removeAllRanges();
 
 })
-
-
-
-
-// Drag and Drop feature
-
-body.addEventListener("dragover", function(e) {
-    e.preventDefault();
-    dynamicthumbnail.style.display = "none";
-})
-
-
 
 
 // Call the function on page load

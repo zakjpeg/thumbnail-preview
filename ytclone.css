@@ -190,7 +190,15 @@ margin-right: 20px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-column-gap: 16px;
     grid-row-gap: 30px;
+
     }
+
+@media screen and (min-width: 473px) {
+    .mobile {
+    width: 360px !important;
+    justify-self: center !important;
+    }
+}
 
 .vid-list .thumbnail{
    width: 100%;
