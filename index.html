@@ -4,8 +4,7 @@
 - drag and drop image files
 
 DID:
-- add links (footer)
-- added mobile view toggle button
+- Began implementing A/B Test UI and funcitonality
 
 
 
@@ -49,7 +48,7 @@ DID:
 
 <!-- <div id="overlay"><img src="upload_file_icon.png">Upload Thumbnail</div> -->
 
-<body>
+<body id="body">
 
 
 
@@ -103,27 +102,39 @@ DID:
     <p id="preview__anchor"></p>
     <div class="container">
         <div class="container__wrapper">
-            <div class="controls__container">
-                <button id="btn__place__first">
-                    <span class="material-symbols-outlined">
-                        move_up
-                        </span>
-                </button>
-                <button id="btn__randomize__order"><span class="material-symbols-outlined">
-                    shuffle
-                    </span> <div>
-                    Shuffle Order</div></button>
+            <div class="controls__container__container">
+                <div class="controls__container">
+                    <button id="btn__place__first">
+                        <span class="material-symbols-outlined">
+                            move_up
+                            </span>
+                    </button>
+                    <button id="btn__randomize__order"><span class="material-symbols-outlined">
+                        shuffle
+                        </span> <div>
+                        Shuffle Order</div></button>
 
-                <button id="btn__toggle__darkmode"><span class="material-symbols-outlined">
-                    dark_mode
-                    </span><div>Toggle Darkmode</div></button>
-                <button id="btn__toggle__mobile"><span class="material-symbols-outlined">
-                    phone_iphone
-                    </span></button>
-                
+                    <button id="btn__toggle__darkmode"><span class="material-symbols-outlined">
+                        dark_mode
+                        </span><div>Toggle Darkmode</div></button>
 
+                    
+
+                </div>
+                <div class="controls__container__right">
+
+                    <button id="btn__toggle__mobile"><span class="material-symbols-outlined">
+                        phone_iphone
+                        </span></button>
+                    <div class="btn__copy__title__container">
+                        <button id="btn__ab__test">
+                            <span class="material-symbols-outlined">
+                                compare
+                            </span>
+                            A/B Test</button>
+                    </div>
+                </div>
             </div>
-
             <div class="list-container" id="list-container">
             <div class="vid-list">
                 <img src="https://i.ytimg.com/vi/vD-dEl7R2Bg/maxresdefault.jpg" class="thumbnail" ></a>
@@ -361,8 +372,22 @@ DID:
     </div>
 
 
+
+
     <div class="footer">
         2024 ducky's media
+    </div>
+
+    <div class="ab__test__overlay" id="ab__test__overlay"></div>
+    
+    <div class="popup__ab__test" id="popup__ab__test">
+        <div class="popup__ab__test__left">
+            <img class="preview__A" src="defaultthumbnail.jpg" id="fimagepreviewA" draggable="false">
+            <a id="dynamic__titleA" class="preview__titleA">Testing</a>
+        </div>
+        <div class="popup__ab__test__right" class="preview__titleB">
+            <img class="preview__B" src="defaultthumbnail.jpg" id="fimagepreviewB" draggable="false">
+        </div>
     </div>
 
 

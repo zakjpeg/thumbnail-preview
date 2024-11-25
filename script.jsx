@@ -1,5 +1,8 @@
 const imageInput = document.getElementById('ffile');
 const preview = document.getElementById('fimagepreview');
+const previewA = document.getElementById('fimagepreviewA');
+const previewB = document.getElementById('fimagepreviewB');
+
 const dynamicthumbnail = document.getElementById('dynamic__thumbnail');
 const body = document.getElementsByClassName('body');
 var placeFirstFlag = 0;
@@ -67,6 +70,7 @@ imageInput.addEventListener('change', function(event) {
 
     reader.onload = function(e) {
         preview.src = e.target.result;
+        previewA.src = e.target.result;
         dynamicthumbnail.src = e.target.result;
     }
 
@@ -82,6 +86,7 @@ preview.addEventListener('click', function() {
 const textForm = document.getElementById('inputForm');
 const userInput = document.getElementById('ftitle');
 const resultDiv = document.getElementById('dynamic__title');
+const resultDivA = document.getElementById('dynamic__titleA');
 
 textForm.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -89,6 +94,8 @@ textForm.addEventListener('submit', function(event) {
     const inputValue = userInput.value;
 
     resultDiv.textContent = inputValue;
+    resultDivA.textContent = resultDiv.textContent;
+
 
 })
 
@@ -163,13 +170,28 @@ btnPlaceFirst.addEventListener('click', placeFirst)
 // Button to toggle mobile view on desktop
 const btnToggleMobile = document.getElementById("btn__toggle__mobile");
 btnToggleMobile.addEventListener('click', function() {
-
     btnToggleMobile.classList.toggle('redmode');
 
     const listContainer = document.getElementById("list-container");
 
     listContainer.classList.toggle('mobile');
 
+})
+
+const btnAbTest = document.getElementById("btn__ab__test");
+const abTestOverlay = document.getElementById("ab__test__overlay");
+const abTestPopup = document.getElementById("popup__ab__test");
+btnAbTest.addEventListener('click', function() {
+    /*document.body.classList.toggle('unfocus');*/
+    /*This will make the overlay opaque and disable clicks below it*/ 
+    abTestOverlay.classList.toggle("unfocus");
+    abTestPopup.classList.toggle("unfocus");
+    
+})
+
+abTestOverlay.addEventListener('click', function() {
+    abTestOverlay.classList.toggle("unfocus");
+    abTestPopup.classList.toggle("unfocus");
 })
 
 // Function to copy title text
