@@ -379,16 +379,85 @@ DID:
     </div>
 
     <div class="ab__test__overlay" id="ab__test__overlay"></div>
-    
+
     <div class="popup__ab__test" id="popup__ab__test">
+        <div class="abtest__top">
+            <div class="abtest__left">
+                <img class="preview__A" src="defaultthumbnail.jpg" id="fimagepreviewA" draggable="false">
+                <div class="abtest__vidinfo">
+                    <img src="default profile pic.jpg" class="abtest__pfp">
+                     <div class="ab__test__vidinfo__text">
+                        <a id="dynamic__titleA" class="abtest__title">
+                            Exit to Add Title
+                        </a> <br>
+                        <span class="description__text">Random Duck</span><br>
+                        <span class="description__text">473k views • 2 hours ago</span>
+                     </div>
+                </div>
+            </div>
+            <div class="abtest__right">
+                <img class="preview__B" src="defaultthumbnail.jpg" id="fimagepreviewB" draggable="false">
+                <div class="abtest__vidinfo">
+                    <img src="default profile pic.jpg" class="abtest__pfp">
+                     <div class="abtest__vidinfo__text">
+                        <a id="dynamic__titleB" class="abtest__title">
+                            Enter Title Below
+                        </a> <br>
+                        <span class="description__text">Random Duck</span> <br>
+                        <span class="description__text">473k views • 2 hours ago</span>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="abtest__bottom">
+            <form id="inputFormB" method="post" target="previewframe">
+                <div class="ffile">
+                    <label for="ffileB" class="label">B Thumbnail:<br></label>
+                    <input type="file" id="ffile" name="ffileB" accept="image/png, image/jpg, image/jpeg"><br>
+                </div>
+                <div class="ftitleB">
+                    <label for="ftitleB" class="label">B Video Title:</label>
+                    <input type="text" id="ftitleB" name="ftitlBe" placeholder="Your Video's Title..." required maxlength="100"><br>
+                </div>
+                <div class="wrapper__btn__submit">
+                    <div class="btn__submit__container">
+                        <input type="submit" value="Preview" class="btn__submit" id="btn__submitB">
+                    </div>
+                    <div class="btn__copy__title__container">
+                        <button id="btn__copy__titleB">Copy Title</button>
+                    </div>
+                </div>
+            <!-- submit form for thumbnail B-->
+             <!-- buttons, settings, etc -->
+        </div>
+
+
+
+    </div>
+    
+    <!-- <div class="popup__ab__test" id="popup__ab__test">
         <div class="popup__ab__test__left">
             <img class="preview__A" src="defaultthumbnail.jpg" id="fimagepreviewA" draggable="false">
-            <a id="dynamic__titleA" class="preview__titleA">Testing</a>
+            <div class="ab__vid__info">
+                <img src="default profile pic.jpg">
+                <a id="dynamic__titleA" class="preview__titleA">
+                    Exit to Add Title
+                </a>
+            <span>random duck</span>
+
+            </div>
         </div>
         <div class="popup__ab__test__right" class="preview__titleB">
             <img class="preview__B" src="defaultthumbnail.jpg" id="fimagepreviewB" draggable="false">
+            <div class="ab__vid__info">
+                <img src="default profile pic.jpg">
+                <div class="preview__titleA">
+                    Your Video Title
+                    <span>random duck</span>
+                </div>
+            </div>
         </div>
-    </div>
+    </div> -->
 
 
 </body>

@@ -443,7 +443,7 @@ input[type=text], select {
     transform: scale(1.03);
 }
 
-#btn__copy__title {
+#btn__copy__title, #btn__copy__titleB {
   padding: 5px;
   margin-left: 5px;
   font-family: "Poppins";
@@ -466,7 +466,7 @@ background-color: white;
 color: black;
 }
 
-#btn__copy__title:hover {
+#btn__copy__title:hover, #btn__copy__titleB:hover {
   background-color: rgb(48, 48, 48);
   transform: scale(1.03);
 }
@@ -769,44 +769,110 @@ color: black;
 
 #popup__ab__test {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: fixed;
   left: 12%;
   top: 5%;
   background-color: white;
   width: 74%;
-  height: 80%;
+  height: 90%;
   border-radius: 30px;
   opacity: 0%;
   pointer-events: none;
   justify-content: space-between;
-  padding: 3%;
   font-family:'Roboto' , sans-serif;
-
+  padding: 3%;
+  padding-top: 1%;
 }
 
-.preview__titleA, .preview__titleB {
-  font-size: 1.5svw;
-  color: black;
-  padding-top: 2%;
-  font-weight:500;
+.preview__A, .preview__B {
+  width: 100%;
+  align-self: flex-end;
+  border-radius: 1svw;
 }
 
-.popup__ab__test__left, .popup__ab__test__right {
+
+.abtest__top {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+@media screen and (max-width: 660px) {
+  .abtest__top {
+    flex-direction: column;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  #popup__ab__test {
+    height: 95%;
+  }
+}
+
+.abtest__left, .abtest__right {
   align-content: center;
-  width: 48%;
+  margin: 1%;
 }
 
-.preview__A, .preview__B{
-  pointer-events: none;
-  border-radius: 40px;
-
+.abtest__vidinfo {
+  margin-top: 0.7svw;
+  display: flex;
 }
 
-.preview__A {
 
+.abtest__pfp {
+  width: 3.6svw;
+  height: 3.6svw;
+  border-radius: 999px;
+  margin-right: 0.6svw;
+}
+
+.description__text {
+  color: gray;
+}
+
+.abtest__title {
+  font-weight: 500;
+  color: black;
+}
+
+.abtest__bottom {
+  margin-top: 10px;
+}
+
+.abtest__bottom input[type="file"]::file-selector-button {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 15px;
+  width: 150px;
+  height:40px;
+  border: 2px solid #ffffff;
+  border-radius: 360px;
+  background: none;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(0, 0, 0);
+  transition-duration: 0.2s;
+}
+
+.darkmode .abtest__bottom input[type="file"]::file-selector-button {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 15px;
+  width: 150px;
+  height:40px;
+  border: 2px solid #ffffff;
+  border-radius: 360px;
+  background: none;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(0, 0, 0);
+  transition-duration: 0.2s;
+}
+
+.darkmode .abtest__bottom .label {
+  color: black;
 }
 
 
