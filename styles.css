@@ -775,7 +775,7 @@ color: black;
   top: 5%;
   background-color: white;
   width: 74%;
-  height: 90%;
+  max-height: 90%;
   border-radius: 30px;
   opacity: 0%;
   pointer-events: none;
@@ -786,9 +786,10 @@ color: black;
 }
 
 .preview__A, .preview__B {
-  width: 100%;
+  width: 33svw;
   align-self: flex-end;
-  border-radius: 1svw;
+  border-radius: 2svh;
+  transition: 0ms;
 }
 
 
@@ -807,6 +808,9 @@ color: black;
   }
   #popup__ab__test {
     height: 95%;
+  }
+  .preview__A, .preview__B {
+    width: 55svw;
   }
 }
 

@@ -6,6 +6,55 @@ const previewB = document.getElementById('fimagepreviewB');
 const dynamicthumbnail = document.getElementById('dynamic__thumbnail');
 const body = document.getElementsByClassName('body');
 var placeFirstFlag = 0;
+var BTestFlag = 0;
+
+// Function that updates your preview to reflect image input
+imageInput.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader;
+
+    reader.onload = function(e) {
+        preview.src = e.target.result;
+        previewA.src = e.target.result;
+        dynamicthumbnail.src = e.target.result;
+    }
+
+    reader.readAsDataURL(file);
+    randomizeDivs();
+})
+
+preview.addEventListener('click', function() {
+    imageInput.click();
+})
+
+// Function that updates preview B to reflect image input
+const ImageInputB = document.getElementById('ffileB');
+
+ImageInputB.addEventListener('change', function(event) {
+    // Create a variable 'file' to store the value of your uploaded file
+    const file = event.target.files[0];
+    const reader = new FileReader;
+
+    reader.onload = function(e) {
+        previewB.src = e.target.result;
+        thumbnailB.src = e.target.result;
+    }
+    // Reads your upload as data URL into the previews above
+    reader.readAsDataURL(file);
+    randomizeDivs();
+
+
+
+    if (BTestFlag !== 1) {
+        userB.textContent = 'Random Duck';
+        viewCountB.textContent = '473k views • 2 hours ago';
+        pfpB.src = "default profile pic.jpg";
+        titleB.textContent = 'B Test Video';
+    }
+
+    BTestFlag = 1;
+})
+
 
 // Function to place preview first
 function placeFirst() {
@@ -19,9 +68,14 @@ function placeFirst() {
     const parent = boxes[0].parentNode; // Get the parent element
     const boxesArray = Array.from(boxes); // Convert NodeList to an array
     var i = boxesArray.findIndex(box => box.id === 'dynamic__video');
+    var j = boxesArray.findIndex(box => box.id === 'dynamic__videoB');
 
     if (i !== -1) {
         [boxesArray[0], boxesArray[i]] = [boxesArray[i], boxesArray[0]] ;
+    }
+
+    if ((BTestFlag == 1)&&(j !== -1)) {
+        [boxesArray[1], boxesArray[j]] = [boxesArray[j], boxesArray[1]];
     }
 
     // Remove all boxes from the parent
@@ -42,10 +96,14 @@ function randomizeDivs() {
 
     if (placeFirstFlag == 1) {
         var i = boxesArray.findIndex(box => box.id === 'dynamic__video');
-
-        if (i !== -1) {
+        var j = boxesArray.findIndex(box => box.id === 'dynamic__videoB');
+        if (i !== 0) {
             [boxesArray[0], boxesArray[i]] = [boxesArray[i], boxesArray[0]] ;
         }
+        if ((BTestFlag)&&(j!==1)) {
+            [boxesArray[1], boxesArray[j]] = [boxesArray[j], boxesArray[1]] ;
+        }
+
     }
 
     // Remove all boxes from the parent
@@ -64,23 +122,10 @@ function shuffleArray(array) {
     return array;
 }
 
-imageInput.addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    const reader = new FileReader;
 
-    reader.onload = function(e) {
-        preview.src = e.target.result;
-        previewA.src = e.target.result;
-        dynamicthumbnail.src = e.target.result;
-    }
 
-    reader.readAsDataURL(file);
-    randomizeDivs();
-})
 
-preview.addEventListener('click', function() {
-    imageInput.click();
-})
+
 
 
 const textForm = document.getElementById('inputForm');
@@ -89,13 +134,38 @@ const resultDiv = document.getElementById('dynamic__title');
 const resultDivA = document.getElementById('dynamic__titleA');
 
 textForm.addEventListener('submit', function(event) {
+    // We must prevent the page from refreshing upon submit
     event.preventDefault();
 
     const inputValue = userInput.value;
+    // We can replace our Dynamic Title's text content with the value entered into the textbox upon submission.
 
     resultDiv.textContent = inputValue;
     resultDivA.textContent = resultDiv.textContent;
 
+
+})
+
+// 'Duplicate' set of variables and function to support the A/B Test Functionality
+const dynamicTitleB = document.getElementById('dynamic__titleB');
+const inputFormB = document.getElementById('inputFormB');
+const thumbnailB = document.getElementById('thumbnailB');
+const pfpB = document.getElementById('pfpB');
+const titleB = document.getElementById('titleB');
+const userB = document.getElementById('userB');
+const viewCountB = document.getElementById('viewCountB');
+inputFormB.addEventListener('submit', function(event) {
+    // We must prevent the page from refreshing upon submit
+    event.preventDefault();
+    // We can replace our Dynamic Title's text content with the value entered into the textbox upon submission.
+    dynamicTitleB.textContent = document.getElementById('ftitleB').value;
+    // We will also update the info in the actual preview box
+    titleB.textContent = document.getElementById('ftitleB').value;
+    userB.textContent = 'Random Duck';
+    viewCountB.textContent = '473k views • 2 hours ago'
+
+    // Set B-Test Flag to 1 in order to update rules for 'place first' function (Among other reasons).
+    BTestFlag = 1;
 
 })
 
