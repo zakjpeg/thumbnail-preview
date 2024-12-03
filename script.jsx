@@ -19,8 +19,21 @@ imageInput.addEventListener('change', function(event) {
         dynamicthumbnail.src = e.target.result;
     }
 
+
+
     reader.readAsDataURL(file);
     randomizeDivs();
+
+    const size__warning__notification = document.getElementById("size__warning__notification");
+    const fsize = Math.round((file.size / 1024));
+    if (fsize > 2048) {
+        size__warning__notification.style.opacity = 1;
+        warningTimeout = setTimeout(function(){
+            size__warning__notification.style.opacity = 0;
+            
+        }, 3000);
+    }
+
 })
 
 preview.addEventListener('click', function() {
@@ -43,7 +56,15 @@ ImageInputB.addEventListener('change', function(event) {
     reader.readAsDataURL(file);
     randomizeDivs();
 
-
+    const size__warning__notification = document.getElementById("size__warning__notification");
+    const fsize = Math.round((file.size / 1024));
+    if (fsize > 2048) {
+        size__warning__notification.style.opacity = 1;
+        warningTimeout = setTimeout(function(){
+            size__warning__notification.style.opacity = 0;
+            
+        }, 3000);
+    }
 
     if (BTestFlag !== 1) {
         userB.textContent = 'Random Duck';

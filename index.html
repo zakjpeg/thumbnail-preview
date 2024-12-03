@@ -3,8 +3,9 @@
 - lock preview aspect ratio
 - drag and drop image files
 
+
 DID:
-- Began implementing A/B Test UI and funcitonality
+- Warn users when file is greater than 2MB (FOR A AND B TEST)
 
 
 
@@ -430,11 +431,20 @@ DID:
             <!-- submit form for thumbnail B-->
              <!-- buttons, settings, etc -->
         </div>
-
-
-
     </div>
-    
+
+    <div class="warning__container">
+        <div class="size__warning__notification" id="size__warning__notification">
+            <span class="material-symbols-outlined">
+                warning
+                </span>
+            <div class="warning__message">
+                NOTE: YouTube doesn't accept files bigger than 2MB.
+            </div>
+        </div>
+    </div>
+
+
     <!-- <div class="popup__ab__test" id="popup__ab__test">
         <div class="popup__ab__test__left">
             <img class="preview__A" src="defaultthumbnail.jpg" id="fimagepreviewA" draggable="false">
