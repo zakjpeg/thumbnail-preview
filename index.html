@@ -1,11 +1,16 @@
 <!--TO DO:
-
-- lock preview aspect ratio
 - drag and drop image files
+    - flesh out dropzone overlay with graphic and allow drag-and-drop to input "A Video" file
+    - do the same for "B Video" menu (drag and drop for either A or B);
+- NEON Video stays enabled when you only enter title into B test and click "submit"
 
 
 DID:
-- Warn users when file is greater than 2MB (FOR A AND B TEST)
+- Added click to upload for B-Test
+- Fixed 'copy title' button in B-Test menu
+- Preview and Dynamic Thumbnail Aspect ratios are locked to 16/9
+- A/B Test Menu closes when you click "preview"
+- "B Video" is placed next to "A Video" upon upload if "Place First" is toggled on.
 
 
 
@@ -443,6 +448,11 @@ DID:
             </div>
         </div>
     </div>
+
+    <div class="drop__zone" id="drop__zone">
+    </div>
+
+
 
 
     <!-- <div class="popup__ab__test" id="popup__ab__test">

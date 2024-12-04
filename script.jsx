@@ -76,6 +76,10 @@ ImageInputB.addEventListener('change', function(event) {
     BTestFlag = 1;
 })
 
+previewB.addEventListener('click', function(){
+    ImageInputB.click();
+})
+
 
 // Function to place preview first
 function placeFirst() {
@@ -188,6 +192,16 @@ inputFormB.addEventListener('submit', function(event) {
     // Set B-Test Flag to 1 in order to update rules for 'place first' function (Among other reasons).
     BTestFlag = 1;
 
+    if (BTestFlag && placeFirstFlag) {
+        btnPlaceFirst.click();
+        btnPlaceFirst.click();
+    }
+
+    abTestOverlay.classList.toggle("unfocus");
+    abTestPopup.classList.toggle("unfocus");
+
+
+
 })
 
 var btnSubmit = document.getElementById('btn__submit');
@@ -221,6 +235,7 @@ document.addEventListener('keydown', function(event) {
 
 
 // Dragover Functions (Drag and Drop) WIP
+/*
 const overlay = document.getElementById('overlay');
 
 window.addEventListener('dragenter', (event) => {
@@ -242,9 +257,21 @@ window.addEventListener('drop', (event)=> {
     preventDefault();
     overlay.style.display = "none";
 })
+*/
 
+const dropZone = document.getElementById("drop__zone");
 
+dropZone.addEventListener('dragenter', (event) => {
+    abTestOverlay.style.opacity = 0.6;
+})
 
+dropZone.addEventListener('dragleave', (event)=> {
+    abTestOverlay.style.opacity = 0;
+})
+
+dropZone.addEventListener('drop', (event)=> {
+    abTestOverlay.style.opacity = 0;
+})
 
 
 
@@ -283,11 +310,17 @@ btnAbTest.addEventListener('click', function() {
 abTestOverlay.addEventListener('click', function() {
     abTestOverlay.classList.toggle("unfocus");
     abTestPopup.classList.toggle("unfocus");
+    if (BTestFlag && placeFirstFlag) {
+        btnPlaceFirst.click();
+        btnPlaceFirst.click();
+    }
 })
 
 // Function to copy title text
 var btnCopyTitle = document.getElementById("btn__copy__title");
+var btnCopyTitleB = document.getElementById("btn__copy__titleB")
 var copyText = document.getElementById("ftitle");
+var copyTextB = document.getElementById("ftitleB");
 
 btnCopyTitle.addEventListener('click', function() {
 
@@ -299,11 +332,23 @@ btnCopyTitle.addEventListener('click', function() {
 
 })
 
+btnCopyTitleB.addEventListener('click', function() {
 
-// Call the function on page load
+    copyTextB.select();
+    copyTextB.setSelectionRange(0,99999); // for mobile
+
+    navigator.clipboard.writeText(copyTextB.value);
+        window.getSelection().removeAllRanges();
+})
+
+
+// Call "randomize divs" on page load to shuffle video order frequently
 window.onload = function() {
     randomizeDivs();
 };
+
+
+
 
 
 
