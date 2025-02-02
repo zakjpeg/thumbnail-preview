@@ -259,19 +259,19 @@ window.addEventListener('drop', (event)=> {
 })
 */
 
-const dropZone = document.getElementById("drop__zone");
+// const dropZone = document.getElementById("drop__zone");
 
-dropZone.addEventListener('dragenter', (event) => {
-    abTestOverlay.style.opacity = 0.6;
-})
+// dropZone.addEventListener('dragenter', (event) => {
+//     abTestOverlay.style.opacity = 0.6;
+// })
 
-dropZone.addEventListener('dragleave', (event)=> {
-    abTestOverlay.style.opacity = 0;
-})
+// dropZone.addEventListener('dragleave', (event)=> {
+//     abTestOverlay.style.opacity = 0;
+// })
 
-dropZone.addEventListener('drop', (event)=> {
-    abTestOverlay.style.opacity = 0;
-})
+// dropZone.addEventListener('drop', (event)=> {
+//     abTestOverlay.style.opacity = 0;
+// })
 
 
 
